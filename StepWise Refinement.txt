@@ -1,0 +1,178 @@
+//pLAY GAME      1st itterration 
+==========================================================================================
+//Play game
+//*red turn
+//*bLACK TURN
+//*CHECK FOR WINNER
+=========================================================================================
+1.//Play game
+2.//*red turn
+3.//**Get the position of the piece to be moved from the red player.
+4.//**call the function getRedData to promt the user to enter the coordinates it wants to select
+5.//**the checkRed function expansion
+6.//***if the postion selected has a "b1" or "b2" or "  ", then it will return false, if it does not have any of these then it will return true.
+7.//**while the checkRedfunction evaluates to false, it will print out that it is an invalid input and ask the user to enter a new one.
+8.//**ask the user to enter the postion it wants to move to and validate the input
+9.//***if red x value and y value is equal to negative 1, print out skipping your turn
+10.//***else check for an empty jump 
+11.//****while the check empty jump junction evaluates to false, check if the two values are not negative in order to not get stuck in the loop
+12.//****then check if it is not jumping its own pieces at each quadrant
+13.//****checkEmptyJump function expansion 
+14.//*****if the x coordinate of the selected positon (the piece doing the jumping) - 2 == to the newx and 
+15.//*****and the y coordinate of the selected position + 2== newy
+16.//******then the piece is equal to the newx+1 and the newy-1;
+17.//******use the checkPos function to find out what is inside the coordinates
+18.//******if the jumped piece is a blank then return false
+19.//******call the function checkLikeJumps to check if it is not jumping like pieces, which is expanded below
+20.//******else if the jumped piece is equal "r1" and the selected position(the piece doing the jumping)
+21.//******is not equal to "b1" or if the jumped piece is qual to "r2" and the selected piece is not equal to "b2"
+22.//******or if the selected piece is equal to "r1" and the jumped piece is not equal to "b1" or if the selected
+23.//******piece is equal to "r2" and the jumped piece is not equal to "b2" then return false; else return true. 
+24.//******else if the x coordinate + 2 == newx and the y coordinate of the selected piece + 2==newy
+25.//*******then the jumped x = newx -1 and the jumpedy = newy-1;
+26.//*******then check if it is not jumping a piece that does not match its number the same way explained in lines 16-22.    
+27.//******else if the selected x postion + 2 ==newx and the selected postion-2 is equal to newy
+28.//*******the jumped x is qual to the newx-1 and the jumpedy=newy+1.
+29.//*******then check if it is not jumping a invalid piece the same way explained in lines 16-22.
+30.//****now check if the newx and newy values are too big or too little by calling checkNewRed function.
+31.//****checkNewRed expansion
+32.//*****using the checkpos function make sure the new position does not land on another piece
+33.//*****then if the newx or the newy is greater than 6 or less than 6 and they are not equal to -1, return false.
+34.//******else, if they are equal to negative 1 return true, becasue that indicates they want to jump. 
+35.//****Now if it is a valid jump, clear the jumped position, which is done in the checkRedJump function.
+36.//****checkRedJump function expansion
+37.//****if the selected x-2==the newx and the selectedy+2==newy
+38.//*****then jumpedx is == the newx +1 and the jumpedy is = newy+1. 
+39.//*****use the checkPos function to check if the jumped position is a blank or "r1" or "r2"
+40.//*****return false if any of those are true, else clear the jumped piece by initalizing it to 0, and return true. 
+41.//*****then do the same thisng in lines 32-35 for each quadrant. 
+42.//****call the checkRedJump in playgame function in an if statement to determine wheather to increment points. 
+43.//*****if checkRedJump == true, then redpoints add 1 to redpoints.
+44.//****now use the swap function to switch positions of the initial postion with the new position. 
+//*bLACK TURN
+//*CHECK FOR WINNER
+==================================================================================================
+//PLAY GAME       2nd itterration 
+//================================================================================================
+1.//Play game
+2.//*red turn
+3.//**Get the position of the piece to be moved from the red player.
+4.//**call the function getRedData to promt the user to enter the coordinates it wants to select
+5.//**the checkRed function expansion
+6.//***if the postion selected has a "b1" or "b2" or "  ", then it will return false, if does not have any of these then it will return true.
+7.//**while the checkRedfunction evaluates to false, it will print out that it is an invalid input and ask the user to enter a new one.
+8.//**ask the user to enter the postion it wants to move to and validate the input
+9.//***if red x value and y value is equal to negative 1, print out skipping your turn
+10.//***else check for an empty jump 
+11.//****while the check empty jump junction evaluates to false, check if the two values are not negative in order to not get stuck in the loop
+12.//****then check if it is not jumping its own pieces at each quadrant
+13.//****checkEmptyJump function expansion 
+14.//*****if the x coordinate of the selected positon (the piece doing the jumping) - 2 == to the newx and 
+15.//*****and the y coordinate of the selected position + 2== newy
+16.//******then the piece is equal to the newx+1 and the newy-1;
+17.//******use the checkPos function to find out what is inside the coordinates
+18.//******if the jumped piece is a blank then return false
+19.//******call the function checkLikeJumps to check if it is not jumping like pieces, which is expanded below
+20.//******else if the jumped piece is equal "r1" and the selected position(the piece doing the jumping)
+21.//******is not equal to "b1" or if the jumped piece is qual to "r2" and the selected piece is not equal to "b2"
+22.//******or if the selected piece is equal to "r1" and the jumped piece is not equal to "b1" or if the selected
+23.//******piece is equal to "r2" and the jumped piece is not equal to "b2" then return false; else return true. 
+24.//******else if the x coordinate + 2 == newx and the y coordinate of the selected piece + 2==newy
+25.//*******then the jumped x = newx -1 and the jumpedy = newy-1;
+26.//*******then check if it is not jumping a piece that does not match its number the same way explained in lines 16-22.    
+27.//******else if the selected x postion + 2 ==newx and the selected postion-2 is equal to newy
+28.//*******the jumped x is qual to the newx-1 and the jumpedy=newy+1.
+29.//*******then check if it is not jumping a invalid piece the same way explained in lines 16-22.
+30.//****now check if the newx and newy values are too big or too little by calling checkNewRed function.
+31.//****checkNewRed expansion
+32.//*****using the checkpos function make sure the new position does not land on another piece
+33.//*****then if the newx or the newy is greater than 6 or less than 6 and they are not equal to -1, return false.
+34.//******else, if they are equal to negative 1 return true, becasue that indicates they want to jump. 
+35.//****Now if it is a valid jump, clear the jumped position, which is done in the checkRedJump function.
+36.//****checkRedJump function expansion
+37.//****if the selected x-2==the newx and the selectedy+2==newy
+38.//*****then jumpedx is == the newx +1 and the jumpedy is = newy+1. 
+39.//*****use the checkPos function to check if the jumped position is a blank or "r1" or "r2"
+40.//*****return false if any of those are true, else clear the jumped piece by initalizing it to 0, and return true. 
+41.//*****then do the same thisng in lines 32-35 for each quadrant. 
+42.//****call the checkRedJump in playgame function in an if statement to determine wheather to increment points. 
+43.//*****if checkRedJump == true, then redpoints add 1 to redpoints.
+44.//****now use the swap function to switch positions of the initial postion with the new position. 
+//*CHECK FOR WINNER
+1.//**right after the red turn finishes, check if there is a winner.
+2.//***if the red points is qual to 3 print out that red wins and use a break statement to exit
+3.//**else if the blackPoints is equal to 3, print out that blackPoints wins and use a break statement to exit. 
+//*bLACK TURN
+==================================================================================================================
+//PLAY GAME            3rd itterration 
+//=========================================
+1.//Play game
+2.//*red turn
+3.//**Get the position of the piece to be moved from the red player.
+4.//**call the function getRedData to promt the user to enter the coordinates it wants to select
+5.//**the checkRed function expansion
+6.//***if the postion selected has a "b1" or "b2" or "  ", then it will return false, if does not have any of these then it will return true.
+7.//**while the checkRedfunction evaluates to false, it will print out that it is an invalid input and ask the user to enter a new one.
+8.//**ask the user to enter the postion it wants to move to and validate the input
+9.//***if red x value and y value is equal to negative 1, print out skipping your turn
+10.//***else check for an empty jump 
+11.//****while the check empty jump junction evaluates to false, check if the two values are not negative in order to not get stuck in the loop
+12.//****then check if it is not jumping its own pieces at each quadrant
+13.//****checkEmptyJump function expansion 
+14.//*****if the x coordinate of the selected positon (the piece doing the jumping) - 2 == to the newx and 
+15.//*****and the y coordinate of the selected position + 2== newy
+16.//******then the piece is equal to the newx+1 and the newy-1;
+17.//******use the checkPos function to find out what is inside the coordinates
+18.//******if the jumped piece is a blank then return false
+19.//******call the function checkLikeJumps to check if it is not jumping like pieces, which is expanded below
+20.//******else if the jumped piece is equal "r1" and the selected position(the piece doing the jumping)
+21.//******is not equal to "b1" or if the jumped piece is qual to "r2" and the selected piece is not equal to "b2"
+22.//******or if the selected piece is equal to "r1" and the jumped piece is not equal to "b1" or if the selected
+23.//******piece is equal to "r2" and the jumped piece is not equal to "b2" then return false; else return true. 
+24.//******else if the x coordinate + 2 == newx and the y coordinate of the selected piece + 2==newy
+25.//*******then the jumped x = newx -1 and the jumpedy = newy-1;
+26.//*******then check if it is not jumping a piece that does not match its number the same way explained in lines 16-22.    
+27.//******else if the selected x postion + 2 ==newx and the selected postion-2 is equal to newy
+28.//*******the jumped x is qual to the newx-1 and the jumpedy=newy+1.
+29.//*******then check if it is not jumping a invalid piece the same way explained in lines 16-22.
+30.//****now check if the newx and newy values are too big or too little by calling checkNewRed function.
+31.//****checkNewRed expansion
+32.//*****using the checkpos function make sure the new position does not land on another piece
+33.//*****then if the newx or the newy is greater than 6 or less than 6 and they are not equal to -1, return false.
+34.//******else, if they are equal to negative 1 return true, becasue that indicates they want to jump. 
+35.//****Now if it is a valid jump, clear the jumped position, which is done in the checkRedJump function.
+36.//****checkRedJump function expansion
+37.//****if the selected x-2==the newx and the selectedy+2==newy
+38.//*****then jumpedx is == the newx +1 and the jumpedy is = newy+1. 
+39.//*****use the checkPos function to check if the jumped position is a blank or "r1" or "r2"
+40.//*****return false if any of those are true, else clear the jumped piece by initalizing it to 0, and return true. 
+41.//*****then do the same thisng in lines 32-35 for each quadrant. 
+42.//****call the checkRedJump in playgame function in an if statement to determine wheather to increment points. 
+43.//*****if checkRedJump == true, then redpoints add 1 to redpoints.
+44.//****now use the swap function to switch positions of the initial postion with the new position. 
+//*CHECK FOR WINNER
+1.//**right after the red turn finishes, check if there is a winner.
+2.//***if the red points is qual to 3 print out that red wins and use a break statement to exit
+3.//**else if the blackPoints is equal to 3, print out that blackPoints wins and use a break statement to exit. 
+//*bLACK TURN
+1.//**prompt the black player to enter position of the piece to be moved. 
+2//***call the function getBlackData to get and store the values
+3.//**check if the values inputed by the black player are valid.
+4.//***while checkBlackdata function is ==false, print out an invalid statement and ask black player to enter again.
+5.//**checkBlackdata function expansion.
+6.//*** using the checkPos function, if the selected position is equal to "r1" or "r2" or a space return false
+7.//*** else if the x and y coordinates are greater than 6 or less than 0, return false, else return true. 
+8.//**prompt the black player to enter the new position it would like to move to and store them 
+9.//**check if newx and newy is equal to -1, if they are skip the turn and tell the user.
+10.//**call the function checkEmptyJump to check if it is jumping an empty space, or if it is jumping its own pieces.
+11.//***function is expanded in the red player category, lines 13 - 29.  
+12.//**call the function checkNewBlack to check it is landing on a piece.
+13.//**checkNewBlack function expansion
+14.//***using checkPos, if the new position is=="b1" or "b2" or "r1" or "r2", return false, else return true. 
+15.//**while the check empty jump is equal to false
+16.//***if the newx and newy is equal to -1 use a break to exit, else print out an error statement and ask the user to enter again
+17.//**call the function checkBlackJump to check if the jump is valid and to clear the position that was jumped.
+18.//***the checkBlackJump function is the same logic as the checkRedJump which is explained in expansion in the red section (36-43).
+19.//**if the checkBlackJump evaluates to true, increment the blackPoints. 
+20.//**using the swap function, swap selected black postion with the new selected black postion. 
+21.//**check if there is a winner again at the end of the loop which is described in the CHECK FOR WINNER section 
